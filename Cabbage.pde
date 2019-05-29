@@ -1,24 +1,30 @@
 class Cabbage extends Item{
 	// Requirement #1: Complete Cabbage Class
  
-  boolean isAlive = true;
-  
+ 
   void display(){
   image(cabbage,x,y);
+  println(x,y);
+ 
 }
+
+  Cabbage(float x, float y){
+     super(x,y);
+     
+   }
+   
   void checkCollision(Player player){
     if(player.health < player.PLAYER_MAX_HEALTH
       && isHit(x, y, SOIL_SIZE, SOIL_SIZE, player.x, player.y, player.w, player.h)){
 
         player.health ++;
+        x = -500;
+        isAlive = false;
         
        
       }
   }
-   Cabbage(float x, float y){
-     super(x,y);
-     isAlive = true;
-   }
+ 
     
 	/*
 	Code for Reference:
