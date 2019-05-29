@@ -167,13 +167,10 @@ void initGame(){
 	for(int i = 0; i < items.length; i++){
 		float newX = SOIL_SIZE * floor(random(SOIL_COL_COUNT));
 		float newY = SOIL_SIZE * ( i * 4 + floor(random(4)));
-
-    switch(i){
-      case 0: case 1: items[i] = new Cabbage(newX, newY);
-      case 2: case 3:  items[i] = new Cabbage(newX, newY);// Requirement 4: Create new Dinosaur in row 9 - 16
-      case 4: case 5:  items[i] = new Cabbage(newX, newY);// Requirement 5: Create new Robot in row 17 - 25
-    }
-
+    //float a=random (0,2);
+ 
+  items[i] = (random(2)<1) ? new Cabbage(newX, newY): new Clock(newX, newY); 
+  
 
   
 
@@ -248,6 +245,12 @@ void draw() {
 		image(sweethome, 0, SOIL_ROW_COUNT * SOIL_SIZE);
 
 		// Items
+   for(int i=0; i<items.length ;i++){
+   if( items[i] != null && items[i].isAlive == true ){
+   items[i].display();
+   items[i].checkCollision(player);
+   }
+   }
 		// Requirement #3: Display and check collision with player for each item in Item[] items
 
 		// Player
