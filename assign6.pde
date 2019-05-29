@@ -157,6 +157,9 @@ void initGame(){
 
 	}
 
+
+
+  
 	// Initialize items and their position
 
 	items = new Item[6];
@@ -164,6 +167,15 @@ void initGame(){
 	for(int i = 0; i < items.length; i++){
 		float newX = SOIL_SIZE * floor(random(SOIL_COL_COUNT));
 		float newY = SOIL_SIZE * ( i * 4 + floor(random(4)));
+
+    switch(i){
+      case 0: case 1: items[i] = new Cabbage(newX, newY);
+      case 2: case 3:  items[i] = new Cabbage(newX, newY);// Requirement 4: Create new Dinosaur in row 9 - 16
+      case 4: case 5:  items[i] = new Cabbage(newX, newY);// Requirement 5: Create new Robot in row 17 - 25
+    }
+
+
+  
 
 		// Requirement #3:
 		// 	- Randomly decide if a cabbage or a clock should appear in a random soil every 4 rows (6 items in total)
