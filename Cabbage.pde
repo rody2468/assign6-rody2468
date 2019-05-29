@@ -4,8 +4,7 @@ class Cabbage extends Item{
  
   void display(){
   image(cabbage,x,y);
-  println(x,y);
- 
+
 }
 
   Cabbage(float x, float y){
